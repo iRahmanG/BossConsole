@@ -24,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -56,6 +57,7 @@ fun McpHistoryOverlay(
         Column(
             modifier =
                 Modifier
+                    .testTag("mcpHistoryOverlayRoot")
                     .widthIn(min = 360.dp, max = 460.dp)
                     .heightIn(max = 480.dp)
                     .background(BossTheme.colors.raised, RoundedCornerShape(6.dp))
@@ -142,7 +144,7 @@ private fun McpOperationRow(record: McpOperationRecord) {
             fontSize = 11.sp,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.fillMaxWidth().padding(end = 48.dp),
+            modifier = Modifier.weight(1f),
         )
         Spacer(modifier = Modifier.width(4.dp))
         Text(
